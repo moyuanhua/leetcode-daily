@@ -10,11 +10,12 @@
  * @return {number}
  */
 var maxProduct = function(nums) {
-    let pre = 1;
+    let premax = 1;
+    let premin = 1;
     let max = 0;
     for (let i = 0; i < nums.length; i++) {
         // const element = nums[i];
-        pre = Math.max(pre * nums[i],pre);
+        premax = Math.max(premax * nums[i],pre);
         max = Math.max(pre,max)
     }
     return max;    
