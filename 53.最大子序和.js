@@ -39,13 +39,16 @@
 //     return max;
 // };
 
+
+// 1. 最大值在原数组中 
+// 2. 最大值在环形数组中 此时的subArray一定包含A[0]和A[A.length-1]
+
 // /**
+//  * Kadane 算法啊
 //  * @param {number[]} nums
 //  * @return {number}
 //  */
 var maxSubArray = function(nums) {
-    // let res = nums[0];
-    // let sum = 0;
     let pre = 0;
     let max = nums[0]
     for (let i = 0; i < nums.length; i++) {
