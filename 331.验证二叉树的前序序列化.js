@@ -22,19 +22,19 @@ var isValidSerialization = function(preorder) {
     if(!preorder || !preorder.length){
         return false;
     }
-    if(preorder[0] === '#' && preorder[2] === '#'){ // 只有魔法可以打败魔法
-        return false;
-    }
-    if(preorder[0] === '#' && preorder[2] && preorder[2] !== '#'){ // 只有魔法可以打败魔法
-        return false;
-    }
-    if(preorder[0] === '#'){
-        return true;
-    }
+    // if(preorder[0] === '#' && preorder[2] === '#'){ // 只有魔法可以打败魔法
+    //     return false;
+    // }
+    // if(preorder[0] === '#' && preorder[2] && preorder[2] !== '#'){ // 只有魔法可以打败魔法
+    //     return false;
+    // }
+    // if(preorder[0] === '#'){
+    //     return true;
+    // }
    
 
-    let stack = [2];
-    for (let i = 1; i < preorder.length; i++) {
+    let stack = [1];
+    for (let i = 0; i < preorder.length; i++) {
         if(stack.length === 0){
             return false;
         }
