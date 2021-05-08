@@ -44,7 +44,7 @@
 // 2. 最大值在环形数组中 此时的subArray一定包含A[0]和A[A.length-1]
 
 // /**
-//  * Kadane 算法啊
+//  * 贪心  算法啊
 //  * @param {number[]} nums
 //  * @return {number}
 //  */
@@ -58,5 +58,23 @@ var maxSubArray = function(nums) {
     return max;
 }
 
+// 动态规划 其实是记录每一个i的最大值
+// 
+var maxSubArray2 = function(nums) {
+    let pre = 0;
+    let max = nums[0];
+    for (let i = 0; i < nums.length; i++) {
+        if(pre >=0){
+            nums[i] = pre + nums[i];  
+        }
+        pre = nums[i]
+        max = Math.max(pre,max);
+    }
+    return max;
+}
+
+// 从这两种解法中我们可以看出贪心和动态规划的区别是贪心只关心当前状态 而 动态规划关心每一个i的最大值
+
 // @lc code=end
 
+console.log(maxSubArray2([-2,1,-3,4,-1,2,1,-5,4]))
