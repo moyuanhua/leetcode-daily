@@ -34,7 +34,7 @@ var lengthOfLIS = function(nums) {
     }
 
     // const res =  maxlength(nums,nums.length-1)
-    // console.log(dp)
+    console.log(dp)
     return Max;
 };
 
@@ -54,4 +54,4 @@ var lengthOfLIS = function(nums) {
 // }
 // @lc code=end
 
-lengthOfLIS([1,3,6,7,9,4,10,5,6])
+lengthOfLIS([10,9,2,5,3,7,101,18])

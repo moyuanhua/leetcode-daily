@@ -10,11 +10,16 @@
  * @return {number}
  */
 var climbStairs = function(n) {
-    let f = [1,1,2];
-    for (let i = 3; i <= n; i++) {
-        f[i] = f[i-1] + f[i-2];
-    }
-    return f[n];
+   if(n ===0 || n === 1){
+       return 1;
+   }
+   let pre = 1, cur = 2;
+   for (let i = 3; i <= n; i++) {
+        let sum = (pre + cur)
+        pre = cur;
+        cur = sum;
+   }
+   return cur;
 };
 // @lc code=end
 
