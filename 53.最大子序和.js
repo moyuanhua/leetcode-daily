@@ -61,14 +61,12 @@ var maxSubArray = function(nums) {
 // 动态规划 其实是记录每一个i的最大值
 // 
 var maxSubArray2 = function(nums) {
-    let pre = 0;
-    let max = nums[0];
-    for (let i = 0; i < nums.length; i++) {
-        if(pre >=0){
-            nums[i] = pre + nums[i];  
+     let max = nums[0];
+    for(let i=1;i<nums.length;i++){
+        if(nums[i-1] > 0){
+            nums[i] += nums[i-1]
         }
-        pre = nums[i]
-        max = Math.max(pre,max);
+        max = Math.max(max,nums[i])
     }
     return max;
 }
