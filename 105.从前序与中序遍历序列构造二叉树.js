@@ -24,35 +24,33 @@ function TreeNode(val, left, right) {
     this.right = (right===undefined ? null : right)
 }
 
-/**
- * @param {number[]} preorder
- * @param {number[]} inorder
- * @return {TreeNode}
- */
 var buildTree = function(preorder, inorder) {
-    if(!preorder || !preorder.length) {
-        return null;
+    if(!preorder.length || !inorder.length){
+        return null
     }
-    map = new Map();
-    preindex = 0;
-
-    for (let i = 0; i < inorder.length; i++) {
+    let pre_index = 0;
+    let map = new Map();
+    for(let i=0;i<inorder.length;i++){
         const value = inorder[i];
-        map.set(value,i)
+        map.set(value,i);
     }
-    return dfs(preorder,0,preorder.length - 1);
-};
+    console.log(map.get(3))
+    
 
-var dfs = function(pre,left,right){
-    if(left > right ) return null;
-    let root =  new TreeNode(pre[preindex++]);
-    let in_index = map.get(root.val);
-    root.left = dfs(pre,left,in_index-1);
-    root.right = dfs(pre,in_index + 1, right);
-    return root;
-}
+    const dfs = (pre,left,right) => {
+        if(left > right) return null;
+        let root = new TreeNode(pre[pre_index]);
+        let in_index = map.get(root.val);
+        pre_index++;
+        root.left = dfs(pre,left,in_index -1)
+        root.right = dfs(pre,in_index+1,right);
+        return root;
+    }
+    return dfs(preorder,0,preorder.length -1);
+};
 
 // var d
 
 // @lc code=end
 
+buildTree([3,9,20,15,7],[9,3,15,20,7]);
